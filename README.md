@@ -1,5 +1,5 @@
-<img src="docs/images/azure-functions-logo.png" width="150" height="150"><img src="docs/images/keda-icon-color.png" width="150" height="150">
-===
+<p align="center"><img src="docs/images/azure-functions-logo.png" width="150" height="150"><img src="docs/images/keda-icon-color.png" width="150" height="150"></p>
+<hr />
 
 |Platform|Version|
 |---|---|
