@@ -18,3 +18,30 @@ In this project I try to solve some common issues on Azure Functions development
 - **Use Dependency injection in startup**
 - **Map request body in HttpTrigger and DurableFunction**
 - **Create yml file for Keda based on azure function type**
+
+## Pre-requisites
+
+* [Azure Function Core Tools v4](https://github.com/azure/azure-functions-core-tools#installing).
+* An Azure Subscription (to host the storage queue).  A free account works great - [https://azure.com/free](http://azure.com/free)
+* Kubernetes cluster (can be [AKS](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal), GKE, EKS, OpenShift etc.) and [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) pointing to your Kubernetes cluster (for [AKS](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)).
+* Docker and a Docker registry
+## Install KEDA
+
+[Follow the instructions](https://keda.sh/docs/2.0/deploy/) to deploy KEDA in your cluster.
+
+To confirm that KEDA has successfully installed you can run the following command and should see the following CRD.
+
+```cli
+kubectl get customresourcedefinition
+NAME                     AGE
+scaledobjects.keda.sh    2h
+scaledjobs.keda.sh       2h
+```
+## Azure Functions guidelines
+- **[Durable Fucntion](azure-functions-docs.md)**
+- **[Timer Trigger](azure-functions-docs.md)**
+- **[Queue Trigger](azure-functions-docs.md)**
+
+## ToDos
+* ***Add other Azure function types***
+* ***Add Unit test***

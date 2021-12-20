@@ -1,0 +1,41 @@
+trigger:
+- main
+
+resources:
+- repo: self
+
+stages:
+- stage: Build
+  displayName: Build and push azure functions
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        version: '6.0.x'
+        includePreviewVersions: true
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'build'
+        projects: '**/*.csproj'
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'publish'
+        publishWebProjects: true
+        arguments: '--output $(Build.ArtifactStagingDirectory)'
+        zipAfterPublish: false
+    - task: Docker@2
+      displayName: Build and push durable function image
+      inputs:
+        command: buildAndPush
+        repository: 'azure-fucntion-with-keda/durable-function'
+        buildContext: .
+        dockerfile: 'src/DurableFunction/Dockerfile'
+        containerRegistry: 'your-docker-registry-service-connection'
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)'
+        artifactName: '$(Build.SourceBranchName)_$(Build.BuildId)'
