@@ -37,7 +37,7 @@ spec:
   triggers:
     - type: cron
       metadata:
-        timezone: Asian/Tehran
+        timezone: Asia/Tehran
         start: 0 0 * * *
         end: 59 23 * * *
         desiredReplicas: "10"
