@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  durable-function:
+    image: durabe-function-image
+    ports:
+    - 7007:80
+    build:
+      context: .
+      dockerfile: src/DurableFunction/Dockerfile
+    environment:
+     - WEBSITE_HOSTNAME=localhost:7007
