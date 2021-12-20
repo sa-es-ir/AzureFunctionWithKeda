@@ -328,15 +328,9 @@ ASALocalRun/
 # NVidia Nsight GPU debugger configuration file
 *.nvuser
 
-#appsettings.Development.json
-#appsettings.development.json
-appsettings.user.yaml
-
 **/.lsnc
 **/*.swp
 .vscode
 .nuget
 *.xml
 
-#Ignore local updloaded files
-src/*/*/files
