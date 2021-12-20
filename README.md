@@ -1,5 +1,4 @@
-<img src="https://raw.githubusercontent.com/Azure/azure-functions-cli/master/src/Azure.Functions.Cli/npm/assets/azure-functions-logo-color-raster.png" width="150">
-<img src="https://keda.sh/img/logos/keda-icon-color.png" width="150">
+<img src="https://raw.githubusercontent.com/Azure/azure-functions-cli/master/src/Azure.Functions.Cli/npm/assets/azure-functions-logo-color-raster.png" width="150"><img src="https://keda.sh/img/logos/keda-icon-color.png" width="150">
 
 
 # Azure Function samples With Keda
