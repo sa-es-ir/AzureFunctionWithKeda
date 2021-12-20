@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-durable-function-with-keda
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-durable-function-with-keda
+  template:
+    metadata:
+      labels:
+        app: azure-durable-function-with-keda
+    spec:
+      containers:
+        - name: azure-durable-function-with-keda
+          image: your-image-from-repository
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          env:
+            - name: AZURE_FUNCTIONS_ENVIRONMENT
+              value: Production
+            - name: FUNCTIONS_WORKER_RUNTIME
+              value: dotnet
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: azure-durable-function-with-keda
+  namespace: keda-namespace
+spec:
+  scaleTargetRef:
+    name: azure-durable-function-with-keda
+  minReplicaCount: 1
+  maxReplicaCount: 20
+  triggers:
+    - type: external
+      metadata:
+        scalerAddress: durable-function-address #can be public address or internal address

@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{13031820-560E-405A-B19C-8F2950CBB140}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DurableFunction", "src\DurableFunction\DurableFunction.csproj", "{19B6032F-1B3F-49B7-B7A7-9AABA20AC55E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DurableFunction", "src\DurableFunction\DurableFunction.csproj", "{19B6032F-1B3F-49B7-B7A7-9AABA20AC55E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimerTriggerFunction", "src\TimerTriggerFunction\TimerTriggerFunction.csproj", "{11C9644F-7BB7-4A44-A4DF-DCAF1B177962}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +19,17 @@ Global
 		{19B6032F-1B3F-49B7-B7A7-9AABA20AC55E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19B6032F-1B3F-49B7-B7A7-9AABA20AC55E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19B6032F-1B3F-49B7-B7A7-9AABA20AC55E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11C9644F-7BB7-4A44-A4DF-DCAF1B177962}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11C9644F-7BB7-4A44-A4DF-DCAF1B177962}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11C9644F-7BB7-4A44-A4DF-DCAF1B177962}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11C9644F-7BB7-4A44-A4DF-DCAF1B177962}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{19B6032F-1B3F-49B7-B7A7-9AABA20AC55E} = {13031820-560E-405A-B19C-8F2950CBB140}
+		{11C9644F-7BB7-4A44-A4DF-DCAF1B177962} = {13031820-560E-405A-B19C-8F2950CBB140}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13D87AF6-D725-42E7-A97D-E6B8A8B5DCE2}

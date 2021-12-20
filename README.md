@@ -1,4 +1,5 @@
 <img src="https://raw.githubusercontent.com/Azure/azure-functions-cli/master/src/Azure.Functions.Cli/npm/assets/azure-functions-logo-color-raster.png" width="150" height="150"><img src="https://keda.sh/img/logos/keda-icon-color.png" width="150" height="150">
+===
 
 |Platform|Version|
 |---|---|
@@ -38,9 +39,9 @@ scaledobjects.keda.sh    2h
 scaledjobs.keda.sh       2h
 ```
 ## Azure Functions guidelines
-- **[Durable Fucntion](azure-functions-docs.md)**
-- **[Timer Trigger](azure-functions-docs.md)**
-- **[Queue Trigger](azure-functions-docs.md)**
+- **[Durable Fucntion](docs/durable-function.md)**
+- **[Timer Trigger](docs/azure-functions-docs.md)**
+- **[Queue Trigger](docs/azure-functions-docs.md)**
 
 ## ToDos
 * ***Add other Azure function types***

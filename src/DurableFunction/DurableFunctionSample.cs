@@ -51,10 +51,7 @@ namespace DurableFunction
 
             //in case of get request like http://localhost:7071/api/Function1_HttpStart?name=durable&family=function
             if (req.Method == HttpMethod.Get)
-            {
-                request.Name = req.RequestUri.ParseQueryString()["name"];
-                request.Family = req.RequestUri.ParseQueryString()["family"];
-            }
+                req.RequestUri.TryReadQueryAs(out request);
 
             //in case of post request read request body
             if (req.Method == HttpMethod.Post)

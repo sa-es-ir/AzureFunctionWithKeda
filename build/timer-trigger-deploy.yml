@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timer-trigger-function-with-keda
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: timer-trigger-function-with-keda
+  template:
+    metadata:
+      labels:
+        app: timer-trigger-function-with-keda
+    spec:
+      containers:
+        - name: timer-trigger-function-with-keda
+          image: your-function-image-from-repository
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          env:
+            - name: AZURE_FUNCTIONS_ENVIRONMENT
+              value: Production
+            - name: FUNCTIONS_WORKER_RUNTIME
+              value: dotnet
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: timer-trigger-function-with-keda
+  namespace: keda-namespace
+spec:
+  scaleTargetRef:
+    name: timer-trigger-function-with-keda
+  minReplicaCount: 0
+  maxReplicaCount: 20
+  triggers:
+    - type: cron
+      metadata:
+        timezone: Asian/Tehran
+        start: 0 0 * * *
+        end: 59 23 * * *
+        desiredReplicas: "10"
