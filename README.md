@@ -41,7 +41,7 @@ scaledobjects.keda.sh    2h
 scaledjobs.keda.sh       2h
 ```
 ## Azure Functions guidelines
-- **[Durable Fucntion](docs/durable-function.md)**
+- **[Durable Functions Orchestration](docs/durable-function.md)**
 - **[Timer Trigger](docs/timer-trigger.md)**
 - **[Queue Trigger](docs/queue-trigger.md) (on doing)**
 
