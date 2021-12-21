@@ -37,4 +37,4 @@ spec:
   triggers:
     - type: external
       metadata:
-        scalerAddress: durable-function-address #can be public address or internal address
+        scalerAddress: durable-function-address #Required and can be public address or internal address

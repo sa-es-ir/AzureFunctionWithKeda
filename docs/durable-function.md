@@ -53,3 +53,42 @@ KEDA Durable Functions Scaler works as a gRPC server of the [External Scaler Sup
 #### Minimum Pod number is 1. Not zero.
 
 Currently, KEDA Durable Scaler can't make functions scale down to zero. The minimum pod number is one. Durable Scaler needs to send data to the control/worker queue. To achieve this behavior, we need to separate the HTTP and non-HTTP deployments. However, the feature seems not working. We need to wait until this issue is fixed.
+
+## Keda yaml file
+for deploy keda on your kubernetes cluster the [yaml file](../build/durable-function-deploy.yml) would be like this:
+```cli
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: azure-durable-function-with-keda
+  namespace: keda-namespace
+spec:
+  scaleTargetRef:
+    name: azure-durable-function-with-keda
+  minReplicaCount: 1
+  maxReplicaCount: 20
+  triggers:
+    - type: external
+      metadata:
+        scalerAddress: durable-function-address #Required and can be public address or internal address
+```
+there are some important things in KEDA to be explain
+- ``kind: ScaledObject`` tells kubernetes that this service is for keda and use for auto scalling
+- ``scaleTargetRef`` consider that KEDA should trigger which service that run on kubernetes for detecting auto scalling when service was busy and needs more pods (in this case we first create deployment named ``durable-function``)
+- ``triggers`` consider type of scaled object, there several trigger types, for Durable function use **external**
+- ``scalerAddress`` this is the address that KEDA will check it for increasing or decreasing pods
+
+Having all that configured we can now deploy the YAML file to AKS.
+```bashe
+kubectl apply -f .\deploy.yaml 
+```
+To check if everything is working, check the deployment.
+```bash
+> kubectl get deploy
+NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
+ durable-function            0/0     0            0           20h
+
+> kubectl get ScaledObject
+NAME                       SCALETARGETKIND           SCALETARGETNAME             TRIGGERS      AUTHENTICATION   READY   ACTIVE      AGE
+durable-function-scaledobject   apps/v1.Deployment   durable-function            external                       True      False     20h
+```
