@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: queue-trigger-function-with-keda
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: queue-trigger-function-with-keda
+  template:
+    metadata:
+      labels:
+        app: queue-trigger-function-with-keda
+    spec:
+      containers:
+        - name: queue-trigger-function-with-keda
+          image: your-function-image-from-repository
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          env:
+            - name: AZURE_FUNCTIONS_ENVIRONMENT
+              value: Production
+            - name: FUNCTIONS_WORKER_RUNTIME
+              value: dotnet
+---
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: queue-trigger-function-with-keda
+  namespace: keda-namespace
+spec:
+  scaleTargetRef:
+    name: queue-trigger-function-with-keda
+  minReplicaCount: 0
+  maxReplicaCount: 20
+  triggers:
+  - type: azure-queue
+    metadata:
+      # Required
+      queueName: function-queue-queu
+      # Optional, required when pod identity is used
+      accountName: storage-account-name
+      # Optional: connection OR authenticationRef that defines connection
+      connectionFromEnv: STORAGE_CONNECTIONSTRING_ENV_NAME # Default: AzureWebJobsStorage. Reference to a connection string in deployment
+      # or authenticationRef as defined below
+      #
+      # Optional
+      queueLength: "5" # default 5
+      cloud: Private
+      endpointSuffix: queue.local.azurestack.external # Required when cloud=Private

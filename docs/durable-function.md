@@ -55,7 +55,7 @@ KEDA Durable Functions Scaler works as a gRPC server of the [External Scaler Sup
 Currently, KEDA Durable Scaler can't make functions scale down to zero. The minimum pod number is one. Durable Scaler needs to send data to the control/worker queue. To achieve this behavior, we need to separate the HTTP and non-HTTP deployments. However, the feature seems not working. We need to wait until this issue is fixed.
 
 ## Keda yaml file
-for deploy keda on your kubernetes cluster the [yaml file](../build/durable-function-deploy.yml) would be like this:
+for deploy keda on your kubernetes cluster the yaml file would be like this ([see complete file](../build/durable-function-deploy.yml)):
 ```cli
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
@@ -80,15 +80,15 @@ there are some important things in KEDA to be explain
 
 Having all that configured we can now deploy the YAML file to AKS.
 ```bashe
-kubectl apply -f .\deploy.yaml 
+kubectl apply -f .\durable-function-deploy.yml
 ```
 To check if everything is working, check the deployment.
 ```bash
 > kubectl get deploy
 NAME                        READY   UP-TO-DATE   AVAILABLE   AGE
- durable-function            0/0     0            0           20h
+ azure-durable-function-with-keda            0/0     0            0           20h
 
 > kubectl get ScaledObject
 NAME                       SCALETARGETKIND           SCALETARGETNAME             TRIGGERS      AUTHENTICATION   READY   ACTIVE      AGE
-durable-function-scaledobject   apps/v1.Deployment   durable-function            external                       True      False     20h
+azure-durable-function-with-keda   apps/v1.Deployment   azure-durable-function-with-keda            external                       True      False     20h
 ```
