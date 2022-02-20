@@ -38,7 +38,7 @@ spec:
   - type: azure-queue
     metadata:
       # Required
-      queueName: function-queue-queu
+      queueName: function-queue-keda
       # Optional, required when pod identity is used
       accountName: storage-account-name
       # Optional: connection OR authenticationRef that defines connection
@@ -49,3 +49,5 @@ spec:
       queueLength: "5" # default 5
       cloud: Private
       endpointSuffix: queue.local.azurestack.external # Required when cloud=Private
+      authenticationRef:
+        name: azure-queue-auth # authenticationRef would need either podIdentity or define a connection parameter
