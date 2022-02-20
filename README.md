@@ -43,7 +43,7 @@ scaledjobs.keda.sh       2h
 ## Azure Functions guidelines
 - **[Durable Functions Orchestration](docs/durable-function.md)**
 - **[Timer Trigger](docs/timer-trigger.md)**
-- **[Queue Trigger](docs/queue-trigger.md) (on doing)**
+- **[Queue Trigger](docs/queue-trigger.md)**
 
 ## ToDos
 * ***Add other Azure function types***
