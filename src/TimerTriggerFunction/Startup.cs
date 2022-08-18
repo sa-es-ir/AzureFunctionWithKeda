@@ -34,8 +34,5 @@ public class Startup : FunctionsStartup
             {
                 config.GetSection("FunctionOption").Bind(settings);
             });
-
-        //add other service to DI
-        //builder.Services.AddScoped<ISampleService, SampleService>()
     }
 }
