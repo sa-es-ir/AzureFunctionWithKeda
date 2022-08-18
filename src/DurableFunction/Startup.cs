@@ -16,6 +16,7 @@ public class Startup : FunctionsStartup
 
         FunctionsHostBuilderContext context = builder.GetContext();
 
+        //add configuration files
         builder.ConfigurationBuilder
             .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
             .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false)
@@ -34,8 +35,5 @@ public class Startup : FunctionsStartup
             {
                 config.GetSection("FunctionOption").Bind(settings);
             });
-
-        //add other service to DI
-        //builder.Services.AddScoped<ISampleService, SampleService>()
     }
 }
