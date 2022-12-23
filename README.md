@@ -47,4 +47,3 @@ scaledjobs.keda.sh       2h
 
 ## ToDos
 * ***Add other Azure function types***
-* ***Add Unit test***
