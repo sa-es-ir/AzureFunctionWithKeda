@@ -1,4 +1,4 @@
-# this file is only for test the building docker image 
+# This file is only for testing build docker image 
 version: '3.4'
 
 services:
