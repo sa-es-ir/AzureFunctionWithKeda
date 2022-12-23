@@ -10,4 +10,4 @@ services:
       context: .
       dockerfile: src/DurableFunction/Dockerfile
     environment:
-     - WEBSITE_HOSTNAME=localhost:7007
+     - WEBSITE_HOSTNAME=localhost:7007 # Required when you want to use on prodution
