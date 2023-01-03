@@ -10,7 +10,7 @@
 
 |Framework|Version|
 |---|---|
-|TargetFramework| **net6.0** |
+|.Net| **net6.0** |
 |AzureFunctions| **v4** |
 |Keda| **2.0** |
 
