@@ -43,8 +43,7 @@ spec:
       accountName: storage-account-name
       # Optional: connection OR authenticationRef that defines connection
       connectionFromEnv: STORAGE_CONNECTIONSTRING_ENV_NAME # Default: AzureWebJobsStorage. Reference to a connection string in deployment
-      # or authenticationRef as defined below
-      # Optional
+      # or authenticationRef as defined below and it's optional
       queueLength: "5" # default 5
       cloud: Private
       endpointSuffix: queue.local.azurestack.external # Required when cloud=Private
