@@ -46,4 +46,4 @@ scaledjobs.keda.sh       2h
 - **[Queue Trigger](docs/queue-trigger.md)**
 
 ## ToDos
-* ***Add other Azure function types***
+* ***Add other Azure function types (don't hesitate if you want to contribute)***
