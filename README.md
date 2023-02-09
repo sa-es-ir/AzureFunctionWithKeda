@@ -14,7 +14,7 @@
 |AzureFunctions| **v4** |
 |Keda| **2.0** |
 
-In this project I try to solve some common issues on Azure Functions developing and deploying using Kubernetes and Keda.
+In this project I've tried to solve some common issues on Azure Functions developing and deploying using Kubernetes and Keda.
 
 ## Common issues
 - **Use appsetting.json**
