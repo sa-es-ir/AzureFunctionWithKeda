@@ -19,7 +19,7 @@ In this repo, I've tried to solve some common issues on Azure Functions developi
 ## Common issues
 - **Use appsetting.json**
 - **Use Dependency injection in startup**
-- **Map request body in HttpTrigger and DurableFunction**
+- **Map request body in the HttpTrigger and DurableFunction**
 - **Create yml file for Keda based on azure function types**
 
 ## Pre-requisites
