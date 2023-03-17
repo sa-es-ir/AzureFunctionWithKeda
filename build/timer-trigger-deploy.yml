@@ -39,5 +39,5 @@ spec:
       metadata:
         timezone: Asia/Tehran
         start: 0 0 * * *
-        end: 59 23 * * *
+        end: 23 59 * * *
         desiredReplicas: "10"
