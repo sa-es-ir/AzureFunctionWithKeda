@@ -39,5 +39,5 @@ spec:
       metadata:
         timezone: Asia/Tehran
         start: 0 0 * * * # start monitoring at
-        end: 23 59 * * * # end monitoring at (basically we want to tell keda monitor this timer-trigger whole the day)
+        end: 23 59 * * * # end monitoring at (basically we want to tell KEDA to monitor this timer-trigger whole the day)
         desiredReplicas: "10"
